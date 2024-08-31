@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- monrope font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .manrope {
+        font-family: "Manrope", sans-serif;
+      }
+      .scrollbar-hidden {
+        scrollbar-width: none; /* Hides the scrollbar */
+      }
+
+      /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+      .scrollbar-hidden::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+      }
+    </style>
+
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.getElementById("main-content");
+
+        sidebarToggle.addEventListener("click", function () {
+          sidebar.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="flex flex-col h-screen">
+      <!-- Header -->
+      <header
+        class="bg-gray-800 text-white p-4 flex justify-between items-center"
+      >
+        <button id="sidebarToggle" class="text-white focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+        <h1 class="text-xl font-bold">Dashboard</h1>
+      </header>
+
+      <div class="flex flex-1 overflow-scroll scrollbar-hidden relative">
+        <!-- Sidebar -->
+        <div
+          id="sidebar"
+          class="bg-gray-800 text-white w-64 space-y-6 px-2 py-4 h-full overflow-y-auto scrollbar-hidden lg:z-0 z-10 fixed lg:static"
+        >
+          <a href="#" class="text-white flex items-center space-x-2 px-4">
+            <svg
+              class="h-8 w-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 20l9-7-9-7-9 7 9 7z"
+              ></path>
+            </svg>
+            <span class="text-2xl font-extrabold">Brand</span>
+          </a>
+          <nav class="">
+            <p class="py-1.5 px-6 text-gray-400 font-[0.5rem]">Inventory</p>
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Add Medicine</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Update/Delete</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Inventory Reports</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Expiry Reports</a
+            >
+            <hr class="my-2 mx-2 border-gray-500" />
+            <p class="py-1.5 px-6 text-gray-400 font-[0.5rem]">
+              Sales Management
+            </p>
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Sales Medicine</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Sales Report</a
+            >
+            <hr class="my-2 mx-2 border-gray-500" />
+            <p class="py-1.5 px-6 text-gray-400 font-[0.5rem]">
+              Patient Management
+            </p>
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Add Patient</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >View Patient</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Patient Report</a
+            >
+            <hr class="my-2 mx-2 border-gray-500" />
+            <p class="py-1.5 px-6 text-gray-400 font-[0.5rem]">
+              User Management
+            </p>
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Add User</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Manage User</a
+            >
+            <a
+              href="#"
+              class="block py-2.5 px-8 rounded transition duration-200 hover:bg-gray-700"
+              >Change Password</a
+            >
+          </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div
+          id="main-content"
+          class="flex-1 p-4 transition-all duration-200 ease-in-out z-0 max-w-[80rem] mx-auto"
+        >
+          <!-- buttons -->
+          <div class="lg:flex gap-6 lg:flex-row lg:justify-center grid md:grid-cols-2 grid-cols-1 lg:max-w-[100%] md:max-w-[65%] max-w-[60%] mb-8 mx-auto">
+            <button
+              class="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-bold py-2 px-6 xl:py-3 xl:px-14 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 hover:from-teal-500 hover:to-blue-500"
+            >
+              Add Medicine
+            </button>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-bold py-2 px-6 xl:py-3 xl:px-14 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 hover:from-teal-500 hover:to-blue-500"
+            >
+            Update Medicine
+            </button>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-bold py-2 px-6 xl:py-3 xl:px-14 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 hover:from-teal-500 hover:to-blue-500"
+            >
+              Add patients
+            </button>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-bold py-2 px-6 xl:py-3 xl:px-14 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 hover:from-teal-500 hover:to-blue-500"
+            >
+              Add Users
+            </button>
+          </div>
+
+          <!-- cards -->
+          <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+            <!-- Card 1 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Total Medicine
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Expired Medicine
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Out Of Stock
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Pending Orders
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Total Sells
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Total Revenue
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-lg transform hover:scale-[1.03] transition duration-300"
+            >
+              <div class="flex flex-col items-start">
+                <div class="bg-blue-500 text-white p-4 rounded-full">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 12h2m4 0h.01M7 12h.01M5 12h.01m-1 4h16m2-8H2"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2">
+                  <p class="mt-1 text-gray-500">1,254</p>
+                  <h2 class="text-xl font-semibold text-gray-700">
+                    Total Patients
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
